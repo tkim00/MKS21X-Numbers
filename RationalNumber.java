@@ -22,48 +22,63 @@ public class RationalNumber extends RealNumber
   }
 
   /**
-  *@return the numerator
+  *return the numerator
   */
   public int getNumerator(){
-    return 0;
+    return numerator;
   }
   /**
-  *@return the denominator
+  *return the denominator
   */
   public int getDenominator(){
-    return 0;
+    return denominator;
   }
   /**
-  *@return a new RationalNumber that has the same numerator
+  *return a new RationalNumber that has the same numerator
   *and denominator as this RationalNumber but reversed.
   */
   public RationalNumber reciprocal(){
-    return null;
+    return RationalNumber(denominator, numerator);
   }
   /**
-  *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
+  *return true when the RationalNumbers have the same numerators and denominators, false otherwise.
   */
   public boolean equals(RationalNumber other){
-    return false;
+    return numerator == denominator;
   }
 
 
   /**
-  *@return the value expressed as "3/4" or "8/3"
+  *return the value expressed as "3/4" or "8/3"
   */
   public String toString(){
     return "" + numerator + "/" + denominator;
   }
 
   /**Calculate the GCD of two integers.
-  *@param a the first integers
-  *@param b the second integer
-  *@return the value of the GCD
+  *param a the first integers
+  *param b the second integer
+  *return the value of the GCD
   */
   private static int gcd(int a, int b){
     /*use euclids method or a better one*/
-    http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
-    return 0;
+    //http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
+    if(a<0){a*-1}
+    if(b<0){b*-1}
+    int dividend;
+    int divisor;
+    if(a>=b){
+      dividend = a;
+      divisor = b;
+    }else{
+      dividend = b;
+      divisor = a;
+    }
+    while(dividend % divisor != 0){
+      dividend = divisor;
+      divisor = dividend % divisor;
+    }
+    return divisor;
   }
 
   /**
