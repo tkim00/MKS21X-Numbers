@@ -87,33 +87,34 @@ public class RationalNumber extends RealNumber
   *reduced after construction.
   */
   private void reduce(){
-
+    numerator = numerator/gcd(numerator, denominator);
+    denominator = denominator/gcd(numerator, denominator);
   }
   /******************Operations Return a new RationalNumber!!!!****************/
   /**
   *Return a new RationalNumber that is the product of this and the other
   */
   public RationalNumber multiply(RationalNumber other){
-    return null;
+    return RationalNumber(numerator * other.getNumerator(), denominator * other.getDenominator());
   }
 
   /**
   *Return a new RationalNumber that is the this divided by the other
   */
   public RationalNumber divide(RationalNumber other){
-    return null;
+    return RationalNumber(numerator * other.getDenominator(), denominator * other.getNumerator());
   }
 
   /**
   *Return a new RationalNumber that is the sum of this and the other
   */
   public RationalNumber add(RationalNumber other){
-    return null;
+    return RationalNumber(numerator * other.getDenominator() + other.getNumerator() * denominator, denominator * other.getDenominator());
   }
   /**
   *Return a new RationalNumber that this minus the other
   */
   public RationalNumber subtract(RationalNumber other){
-    return null;
+    return RationalNumber(numerator * other.getDenominator() - other.getNumerator() * denominator, denominator * other.getDenominator());
   }
 }
