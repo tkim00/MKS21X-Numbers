@@ -4,17 +4,21 @@ public class RationalNumber extends RealNumber
 
   /**Initialize the RationalNumber with the provided values
   *  if the denominator is 0, make the fraction 0/1 instead
-  *@param nume the numerator
-  *@param deno the denominator
+  *param nume the numerator
+  *param deno the denominator
   */
   public RationalNumber(int nume, int deno){
-    super(0.0);//this value is ignored! 
+    super(0.0);//this value is ignored!
     numerator = nume;
     denominator = deno;
+    if(deno == 0){
+      numerator = 0;
+      denominator = 1;
+    }
   }
 
   public double getValue(){
-    return 0.0;
+    return (double)numerator/denominator;
   }
 
   /**
@@ -97,4 +101,4 @@ public class RationalNumber extends RealNumber
   public RationalNumber subtract(RationalNumber other){
     return null;
   }
-} 
+}
