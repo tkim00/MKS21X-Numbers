@@ -38,12 +38,12 @@ public class RationalNumber extends RealNumber
   *and denominator as this RationalNumber but reversed.
   */
   public RationalNumber reciprocal(){
-    return RationalNumber(denominator, numerator);
+    return new RationalNumber(this.denominator, this.numerator);
   }
   /**
   *return true when the RationalNumbers have the same numerators and denominators, false otherwise.
   */
-  public boolean equals(RationalNumber other){
+  public boolean equals(){
     return numerator == denominator;
   }
 
@@ -63,8 +63,8 @@ public class RationalNumber extends RealNumber
   private static int gcd(int a, int b){
     /*use euclids method or a better one*/
     //http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
-    if(a<0){a*-1}
-    if(b<0){b*-1}
+    if(a<0){a*=-1;}
+    if(b<0){b*=-1;}
     int dividend;
     int divisor;
     if(a>=b){
@@ -95,26 +95,26 @@ public class RationalNumber extends RealNumber
   *Return a new RationalNumber that is the product of this and the other
   */
   public RationalNumber multiply(RationalNumber other){
-    return RationalNumber(numerator * other.getNumerator(), denominator * other.getDenominator());
+    return new RationalNumber(numerator * other.getNumerator(), denominator * other.getDenominator());
   }
 
   /**
   *Return a new RationalNumber that is the this divided by the other
   */
   public RationalNumber divide(RationalNumber other){
-    return RationalNumber(numerator * other.getDenominator(), denominator * other.getNumerator());
+    return new RationalNumber(numerator * other.getDenominator(), denominator * other.getNumerator());
   }
 
   /**
   *Return a new RationalNumber that is the sum of this and the other
   */
   public RationalNumber add(RationalNumber other){
-    return RationalNumber(numerator * other.getDenominator() + other.getNumerator() * denominator, denominator * other.getDenominator());
+    return new RationalNumber(numerator * other.getDenominator() + other.getNumerator() * denominator, denominator * other.getDenominator());
   }
   /**
   *Return a new RationalNumber that this minus the other
   */
   public RationalNumber subtract(RationalNumber other){
-    return RationalNumber(numerator * other.getDenominator() - other.getNumerator() * denominator, denominator * other.getDenominator());
+    return new RationalNumber(numerator * other.getDenominator() - other.getNumerator() * denominator, denominator * other.getDenominator());
   }
 }
